@@ -1,22 +1,11 @@
-import { createRootRoute, createRoute, createRouter, Outlet } from '@tanstack/react-router';
+import { createRootRoute, createRoute, createRouter } from '@tanstack/react-router';
 
-// Layout маршрут
+import { RootLayout } from './root-layout';
+
 const RootRoute = createRootRoute({
-  component: () => (
-    <div>
-      <header className="p-4 bg-gray-100">
-        <nav>
-          <a href="/">Home</a> | <a href="/about">About</a>
-        </nav>
-      </header>
-      <main>
-        <Outlet />
-      </main>
-    </div>
-  ),
+  component: RootLayout,
 });
 
-// Страницы
 const HomeRoute = createRoute({
   getParentRoute: () => RootRoute,
   path: '/',

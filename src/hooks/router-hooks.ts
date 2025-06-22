@@ -1,8 +1,8 @@
-import { type NavigateOptions, useLinkProps, useNavigate } from '@tanstack/react-router';
+import { useLinkProps, useNavigate } from '@tanstack/react-router';
 
-import type { router } from '../router'; // Импортируй твой роутер из src/router.ts
+import type { router } from '../router';
 
-type Routes = Parameters<typeof router.navigate>[0]['to']; // Типы путей из роутера
+type Routes = Parameters<typeof router.navigate>[0]['to'];
 
 export function useHref(to: Routes): string {
   const { href } = useLinkProps({ to });
@@ -12,15 +12,12 @@ export function useHref(to: Routes): string {
 export function useHeroNavigate() {
   const navigate = useNavigate();
 
-  return (to: Routes | NavigateOptions | undefined) => {
-    if (!to) {
-      console.warn('[navigate] called with undefined or null');
-      return;
-    }
-    const navArg = typeof to === 'string' ? { to } : to;
-
-    void navigate(navArg).catch((err) => {
+  return (path: string) => {
+    try {
+      // Тут можно добавить валидацию, если путь не в списке разрешённых
+      void navigate({ to: path as '/' | '/about' }); // или просто `to: path`, если отключить строгую типизацию маршрутов
+    } catch (err) {
       console.error('[navigate] error:', err);
-    });
+    }
   };
 }
