@@ -6,7 +6,7 @@ import { useHref } from './hooks/useHeroHref';
 import { useHeroNavigate } from './hooks/useHeroNavigate';
 import { router } from './router';
 
-function RootLayout() {
+const RootLayout = () => {
   const navigate = useHeroNavigate(router);
   const href = useHref;
 
@@ -25,6 +25,6 @@ function RootLayout() {
       <TanStackRouterDevtools />
     </HeroUIProvider>
   );
-}
+};
 
 export { RootLayout };
