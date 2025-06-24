@@ -1,3 +1,4 @@
+import { Button } from '@heroui/react';
 import { createRootRoute, createRoute, createRouter } from '@tanstack/react-router';
 
 import { RootLayout } from './root-layout';
@@ -15,7 +16,13 @@ const HomeRoute = createRoute({
 const AboutRoute = createRoute({
   getParentRoute: () => RootRoute,
   path: '/about',
-  component: () => <div className="p-4">About Page</div>,
+  component: () => (
+    <div className="p-4">
+      About Page
+      <hr />
+      <Button color="primary">Home</Button>
+    </div>
+  ),
 });
 
 const routeTree = RootRoute.addChildren([HomeRoute, AboutRoute]);

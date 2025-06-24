@@ -14,8 +14,7 @@ export function useHeroNavigate() {
 
   return (path: string) => {
     try {
-      // Тут можно добавить валидацию, если путь не в списке разрешённых
-      void navigate({ to: path as '/' | '/about' }); // или просто `to: path`, если отключить строгую типизацию маршрутов
+      void navigate({ to: path as '/' | '/about' });
     } catch (err) {
       console.error('[navigate] error:', err);
     }

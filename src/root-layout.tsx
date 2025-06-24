@@ -1,5 +1,6 @@
-import { HeroUIProvider } from '@heroui/react';
+import { HeroUIProvider, Link } from '@heroui/react';
 import { Outlet } from '@tanstack/react-router';
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 import { useHeroNavigate, useHref } from './hooks/router-hooks';
 
@@ -12,13 +13,14 @@ function RootLayout() {
       <div>
         <header className="p-4 bg-gray-100">
           <nav>
-            <a href="/">Home</a> | <a href="/about">About</a>
+            <Link href="/">Home</Link> | <Link href="/about">About</Link>
           </nav>
         </header>
         <main>
           <Outlet />
         </main>
       </div>
+      <TanStackRouterDevtools />
     </HeroUIProvider>
   );
 }
