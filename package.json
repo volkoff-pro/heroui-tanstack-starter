@@ -16,6 +16,7 @@
     "@tanstack/react-router": "^1.121.27",
     "@tanstack/react-router-devtools": "^1.121.27",
     "framer-motion": "^12.18.1",
+    "path-to-regexp": "^8.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

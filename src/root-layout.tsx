@@ -2,10 +2,12 @@ import { HeroUIProvider, Link } from '@heroui/react';
 import { Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
-import { useHeroNavigate, useHref } from './hooks/router-hooks';
+import { useHref } from './hooks/useHeroHref';
+import { useHeroNavigate } from './hooks/useHeroNavigate';
+import { router } from './router';
 
 function RootLayout() {
-  const navigate = useHeroNavigate();
+  const navigate = useHeroNavigate(router);
   const href = useHref;
 
   return (
