@@ -10,9 +10,11 @@ import reactDom from 'eslint-plugin-react-dom';
 import importPlugin from 'eslint-plugin-import';
 import unusedImports from 'eslint-plugin-unused-imports';
 import prettierPlugin from 'eslint-plugin-prettier';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
+  ...pluginQuery.configs['flat/recommended'],
   {
     ignores: ['dist', 'node_modules', 'coverage'],
   },
