@@ -2,10 +2,13 @@ import { HeroUIProvider, Link } from '@heroui/react';
 import { Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
-import { useHeroNavigate, useHref } from './hooks/router-hooks';
+import { useHref } from '@/hooks/useHeroHref';
+import { useHeroNavigate } from '@/hooks/useHeroNavigate';
 
-function RootLayout() {
-  const navigate = useHeroNavigate();
+import { router } from '../router/router';
+
+const RootLayout = () => {
+  const navigate = useHeroNavigate(router);
   const href = useHref;
 
   return (
@@ -23,6 +26,6 @@ function RootLayout() {
       <TanStackRouterDevtools />
     </HeroUIProvider>
   );
-}
+};
 
 export { RootLayout };
