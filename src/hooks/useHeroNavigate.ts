@@ -1,8 +1,8 @@
 import { useNavigate } from '@tanstack/react-router';
 import { useMemo } from 'react';
 
-import type { RouterType } from '../router';
-import { createMatchers } from '../routes.utils';
+import type { RouterType } from '@/app/router/router';
+import { createMatchers } from '@/app/router/routes.utils';
 
 export function useHeroNavigate(router: RouterType) {
   const navigate = useNavigate();
