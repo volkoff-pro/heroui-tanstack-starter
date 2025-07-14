@@ -1,7 +1,8 @@
-import { HeroUIProvider, Link } from '@heroui/react';
+import { HeroUIProvider } from '@heroui/react';
 import { Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
+import { Navbar } from '@/components/navigation';
 import { useHref } from '@/hooks/useHeroHref';
 import { useHeroNavigate } from '@/hooks/useHeroNavigate';
 
@@ -14,10 +15,8 @@ const RootLayout = () => {
   return (
     <HeroUIProvider navigate={navigate} useHref={href}>
       <div>
-        <header className="p-4 bg-gray-100">
-          <nav>
-            <Link href="/">Home</Link> | <Link href="/about">About</Link>
-          </nav>
+        <header>
+          <Navbar />
         </header>
         <main>
           <Outlet />

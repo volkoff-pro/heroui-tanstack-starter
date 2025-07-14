@@ -2,6 +2,7 @@ import { createRootRoute, createRoute } from '@tanstack/react-router';
 
 import { AboutPage } from '@/pages/About';
 import { HomePage } from '@/pages/Home';
+import { SubscriptionsPage } from '@/pages/Subscriptions';
 
 import { RootLayout } from '../layouts/RootLayout';
 
@@ -21,6 +22,12 @@ const AboutRoute = createRoute({
   component: AboutPage,
 });
 
-const routeTree = RootRoute.addChildren([HomeRoute, AboutRoute]);
+const SubscriptionRoute = createRoute({
+  getParentRoute: () => RootRoute,
+  path: '/subscriptions',
+  component: SubscriptionsPage,
+});
+
+const routeTree = RootRoute.addChildren([HomeRoute, AboutRoute, SubscriptionRoute]);
 
 export { routeTree };
